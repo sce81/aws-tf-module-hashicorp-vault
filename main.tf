@@ -200,7 +200,7 @@ resource "security_group_rule" "global_egress" {
   type                          = "egress"
   from_port                     = element(var.vault_egress_ports.*, count.index)
   to_port                       = element(var.vault_egress_ports.*, count.index)
-  protocol                      = element(var.vault_egress_proto.*, count.index)
+  protocol                      = element(var.vault_egress_protocol.*, count.index)
   cidr_blocks                   = element(var.vault_egress_cidr_blocks.*, count.index)
 
   security_group_id             = aws_security_group.main.id
